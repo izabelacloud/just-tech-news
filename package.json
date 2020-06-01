@@ -1,0 +1,25 @@
+{
+  "name": "just-tech-news",
+  "version": "1.0.0",
+  "description": "just-tech-news",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/izabelacloud/just-tech-news.git"
+  },
+  "author": "Izabela Petrovicova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/izabelacloud/just-tech-news/issues"
+  },
+  "homepage": "https://github.com/izabelacloud/just-tech-news#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.11"
+  }
+}
