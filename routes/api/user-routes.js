@@ -53,29 +53,55 @@ router.post('/', (req,res)=>{
 });
 
 //Login route
-router.post('/login', (req,res) => {
-    User.findOne({ //expects email and password
+router.post('/login', (req, res) => {
+    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+    User.findOne({
+      where: {
+        email: req.body.email
+      }
+    }).then(dbUserData => {
+      if (!dbUserData) {
+        res.status(400).json({ message: 'No user with that email address!' });
+        return;
+      }
+  
+      const validPassword = dbUserData.checkPassword(req.body.password);
+      if (!validPassword) {
+        res.status(400).json({ message: 'Incorrect password!' });
+        return;
+      }
+  
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  });
+
+
+  
+
+//post route for new user for authentication
+router.post('/login', (req, res) => {
+    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+    User.findOne({
         where: {
             email: req.body.email
         }
     })
     .then(dbUserData => {
-        if(!dbUserData){
-            res.status(400).json({ message: 'User not found' });
-            return
+        if(!dbUserData) {
+            res.status(400).json({message: "No user with that email address!"});
+            return;
         }
-        //res.json({ user: dbUserData });
 
-        //Verify User
-        const validPassword = dbUserData.checkPassword(req.body.password); //checkPassword method is defined in the User.js file 
-        if(!validPassword) {
-            res.status(400).json({ message: 'Not a valid Password' });
-            return
-        }
-        res.json({ user: dbUserData, message: 'You are logged in!' });
+        // add comment syntax in front of this line in the .then()
+        // res.json({ user: dbUserData }
 
+        //Verify user
     });
-});
+
+    //Query operation
+
+})
+
 
 //PUT /api/users/1 
 router.put('/:id', (req,res) => {
