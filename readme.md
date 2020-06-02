@@ -2,7 +2,7 @@
 
 ## Description
 
-The Just Tech News application is a tech news website where users can post, upvote, and comment on links to news articles that has a robust backend using APIs, Sequelize, MYSQL.
+The Just Tech News application is a tech news website where users can post, upvote, and comment on links to news articles that has a robust backend using APIs, Sequelize and bcrypt for password hashing/encryption.
 
 ## Table of Contents
 
