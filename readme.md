@@ -1,4 +1,4 @@
-# Just Tech News
+# Just Tech News (ORM)
 
 ## Description
 
