@@ -12,8 +12,11 @@ Comment.init(
             autoIncrement: true
         },
         comment_text: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
+            type: DataTypes.STRING,
+            validate: {
+                // this means the comment_text must be at least four characters long
+            len: [5]
+            }
         },
         user_id: {
             type: DataTypes.INTEGER,
