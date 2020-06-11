@@ -1,8 +1,8 @@
 // will contain all of the user-facing routes, such as the homepage and login page
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
-
 const router = require('express').Router();
+// const withAuth = require('../utils/auth')
 
 // rendering all posts to homepage
 router.get('/', (req, res) => {
